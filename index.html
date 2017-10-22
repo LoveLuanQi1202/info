@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			html,body{
+				width: 100vw;
+				height: 100vh;
+				background-color: antiquewhite;
+			}
+			header{
+				position: relative;
+				height: 20px;
+				padding: 10px 20px;
+				background-color: rgb(5,200,242);
+			}
+			header span{
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+			}
+			.back{
+				position: absolute;
+				top: 13px;
+				left: 20px;
+			}
+			nav{
+				height: 100px;
+				background-color: rgb(125,205,250);
+				padding: 20px;
+			}
+			.navleft{
+				width: 100px;
+				height: 100%;
+				float: left;
+			}
+			.myimg{
+				margin: 10px;
+				height: 80px;
+				width: 80px;
+				border-radius: 50%;
+				background-color: #808080;
+			}
+			.navright{
+				float: left;
+				width: 180px;
+				height: 100%;
+			}
+			.navright ul{
+				padding:10px 20px;
+			}
+			.navright ul li{
+				padding-bottom: 5px;
+			}
+			.content{
+				background-color: white;
+			}
+			.c-info{
+				padding: 10px 0;
+				height: 20px;
+				background-color: rgb(237,237,237);
+			}
+			.c-info span{
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+			}
+			.c-info-main{
+				height: 200px;
+				padding:0 20px;
+			}
+			.ingOrdone{
+				height: 20px;
+				padding-top: 10px;
+				padding-bottom: 5px;
+			}
+			.ingOrdone span{
+				display: inline-block;
+				width: 48%;
+				height: 20px;
+				text-align: center;
+				border: 1px solid rgb(220,220,220);
+				border-radius: 20px;
+				line-height: 20px;
+			}
+			.ingOrdone .ing-active{
+				border: 1px solid rgb(255,201,123);
+				color:rgb(255,201,123);
+			}
+			.info-detail{
+				height:150px;
+				border: 1px solid rgb(220,220,220);
+				overflow: auto;
+			}
+			.info-detail ul {
+				padding:0 5px;
+				
+			}
+			.info-detail ul li{
+				height:50px;
+				box-sizing: border-box;
+				border: 1px solid rgb(220,220,220);
+				margin-top: 5px;
+				border-radius: 5px;
+			}
+		</style>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	
+	<body>
+		<header><i class="fa fa-chevron-left back"></i><span>我的个人界面</span></header>
+		<nav>
+			<div class="navleft"><img class="myimg"></div>
+			<div class="navright">
+				<ul>
+					<li>姓名:</li>
+					<li>性别:</li>
+					<li>手机号:</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="content">
+			<div class="c-info"><span>订单信息</span></div>
+			<div class="c-info-main">
+				<div class="ingOrdone">
+					<span class="ing-active">进行中</span>
+					<span>已完成</span>
+				</div>
+				<div class="info-detail">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
