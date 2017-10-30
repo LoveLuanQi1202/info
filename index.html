@@ -1,149 +1,204 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8" />
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-		<title></title>
-		<style>
-			*{
-				padding: 0;
-				margin: 0;
-				list-style: none;
-			}
-			html,body{
-				width: 100vw;
-				height: 100vh;
-				background-color: antiquewhite;
-			}
-			header{
-				position: relative;
-				height: 20px;
-				padding: 10px 20px;
-				background-color: rgb(5,200,242);
-			}
-			header span{
-				display: inline-block;
-				width: 100%;
-				text-align: center;
-			}
-			.back{
-				position: absolute;
-				top: 13px;
-				left: 20px;
-			}
-			nav{
-				height: 100px;
-				background-color: rgb(125,205,250);
-				padding: 20px;
-			}
-			.navleft{
-				width: 100px;
-				height: 100%;
-				float: left;
-			}
-			.myimg{
-				margin: 10px;
-				height: 80px;
-				width: 80px;
-				border-radius: 50%;
-				background-color: #808080;
-			}
-			.navright{
-				float: left;
-				width: 180px;
-				height: 100%;
-			}
-			.navright ul{
-				padding:10px 20px;
-			}
-			.navright ul li{
-				padding-bottom: 5px;
-			}
-			.content{
-				background-color: white;
-			}
-			.c-info{
-				padding: 10px 0;
-				height: 20px;
-				background-color: rgb(237,237,237);
-			}
-			.c-info span{
-				display: inline-block;
-				width: 100%;
-				text-align: center;
-			}
-			.c-info-main{
-				height: 200px;
-				padding:0 20px;
-			}
-			.ingOrdone{
-				height: 20px;
-				padding-top: 10px;
-				padding-bottom: 5px;
-			}
-			.ingOrdone span{
-				display: inline-block;
-				width: 48%;
-				height: 20px;
-				text-align: center;
-				border: 1px solid rgb(220,220,220);
-				border-radius: 20px;
-				line-height: 20px;
-			}
-			.ingOrdone .ing-active{
-				border: 1px solid rgb(255,201,123);
-				color:rgb(255,201,123);
-			}
-			.info-detail{
-				height:150px;
-				border: 1px solid rgb(220,220,220);
-				overflow: auto;
-			}
-			.info-detail ul {
-				padding:0 5px;
-				
-			}
-			.info-detail ul li{
-				height:50px;
-				box-sizing: border-box;
-				border: 1px solid rgb(220,220,220);
-				margin-top: 5px;
-				border-radius: 5px;
-			}
-		</style>
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	</head>
-	
-	<body>
-		<header><i class="fa fa-chevron-left back"></i><span>我的个人界面</span></header>
-		<nav>
-			<div class="navleft"><img class="myimg"></div>
-			<div class="navright">
-				<ul>
-					<li>姓名:</li>
-					<li>性别:</li>
-					<li>手机号:</li>
-				</ul>
-			</div>
-		</nav>
-		<div class="content">
-			<div class="c-info"><span>订单信息</span></div>
-			<div class="c-info-main">
-				<div class="ingOrdone">
-					<span class="ing-active">进行中</span>
-					<span>已完成</span>
-				</div>
-				<div class="info-detail">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title></title>
+    <style>
+        @media screen and (max-width:325px) {
+            .detail-left span {
+                font-size: 13px;
+            }
+            .detail-right span {
+                font-size: 13px !important;
+            }
+            .ingOrdone>span>span {
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (min-width:400px) {
+            * {
+                font-size: 17px;
+            }
+            .detail-left span {
+                font-size: 17px;
+            }
+            .detail-right span {
+                font-size: 17px !important;
+            }
+            .ingOrdone>span>span {
+                font-size: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body>
+    <header>
+        <i class="glyphicon glyphicon-chevron-left back"></i>
+        <span>我的个人界面</span>
+    </header>
+    <nav>
+        <div class="navleft">
+            <img class="myimg">
+        </div>
+        <div class="navright">
+            <ul>
+                <li>姓名:</li>
+                <li>性别:</li>
+                <li>手机号:</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="c-info">
+            <span>订单信息</span>
+        </div>
+        <div class="c-info-main">
+            <div class="ingOrdone">
+                <span id="clickUndo" class="ing-active">
+                    <span>待处理</span>
+                </span>
+                <span id="clickIng">
+                    <span>进行中</span>
+                </span>
+                <span id="clickDone">
+                    <span>已完成</span>
+                </span>
+            </div>
+            <div class="info-detail">
+                <ul id="undo">
+                    <li>
+                        <div class="detail-left">
+                            <span>订单号:1</span>
+                            <span>取餐时间:12:10</span>
+                            <span>备注:不加葱</span>
+                        </div>
+                        <div class="detail-right">
+                            <span>黑椒里脊盖浇饭</span>
+                            <span class="undo">取消预约</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="ing">
+                    <li>
+                        <div class="detail-left">
+                            <span>订单号:2</span>
+                            <span>取餐时间:12:10</span>
+                            <span>备注:不加葱</span>
+                        </div>
+                        <div class="detail-right">
+                            <span>黑椒里脊盖浇饭</span>
+                            <span class="ing">已接单，请及时取餐</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="done">
+                    <li>
+                        <div class="detail-left">
+                            <span>订单号:3</span>
+                            <span>完成时间:12:10</span>
+
+                        </div>
+                        <div class="detail-right">
+                            <span>黑椒里脊盖浇饭</span>
+                            <span class="done">点评</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="detail-left">
+                            <span>订单号:3</span>
+                            <span>完成时间:12:10</span>
+
+                        </div>
+                        <div class="detail-right">
+                            <span>黑椒里脊盖浇饭</span>
+                            <span class="done">点评</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="detail-left">
+                            <span>订单号:3</span>
+                            <span>完成时间:12:10</span>
+
+                        </div>
+                        <div class="detail-right">
+                            <span>黑椒里脊盖浇饭</span>
+                            <span class="done">点评</span>
+                        </div>
+                    </li>
+                    <li>
+                            <div class="detail-left">
+                                <span>订单号:3</span>
+                                <span>完成时间:12:10</span>
+    
+                            </div>
+                            <div class="detail-right">
+                                <span>黑椒里脊盖浇饭</span>
+                                <span class="done">点评</span>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+        <ul class="c-info-bottom">
+            <li>
+                <i class="glyphicon glyphicon-star star-color"></i>
+                <span class="bottom-title">我的收藏</span>
+                <i class="glyphicon glyphicon-chevron-right buttom-right"></i>
+            </li>
+            <li>
+                <i class="glyphicon glyphicon-thumbs-up up-color"></i>
+                <span class="bottom-title">我的评价</span>
+                <i class="glyphicon glyphicon-chevron-right buttom-right"></i>
+            </li>
+            <li>
+                <i class="glyphicon glyphicon-gift gift-color"></i>
+                <span class="bottom-title">我的礼券</span>
+                <i class="glyphicon glyphicon-chevron-right buttom-right"></i>
+            </li>
+            <li>
+                <i class="glyphicon glyphicon-earphone earphone-color"></i>
+                <span class="bottom-title">联系我们</span>
+                <i class="glyphicon glyphicon-chevron-right buttom-right"></i>
+            </li>
+            <li>
+                <i class="glyphicon glyphicon-check check-color"></i>
+                <span class="bottom-title">使用协议</span>
+                <i class="glyphicon glyphicon-chevron-right buttom-right"></i>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    document.getElementById('clickUndo').onclick = function () {
+        document.getElementById('clickUndo').setAttribute('class', 'ing-active');
+        document.getElementById('clickIng').setAttribute('class', '');
+        document.getElementById('clickDone').setAttribute('class', '');
+        document.getElementById('undo').style.display = "block";
+        document.getElementById('ing').style.display = "none";
+        document.getElementById('done').style.display = "none";
+    }
+    document.getElementById('clickIng').onclick = function () {
+        document.getElementById('clickUndo').setAttribute('class', '');
+        document.getElementById('clickIng').setAttribute('class', 'ing-active');
+        document.getElementById('clickDone').setAttribute('class', '');
+        document.getElementById('undo').style.display = "none";
+        document.getElementById('ing').style.display = "block";
+        document.getElementById('done').style.display = "none";
+    }
+    document.getElementById('clickDone').onclick = function () {
+        document.getElementById('clickUndo').setAttribute('class', '');
+        document.getElementById('clickIng').setAttribute('class', '');
+        document.getElementById('clickDone').setAttribute('class', 'ing-active');
+        document.getElementById('undo').style.display = "none";
+        document.getElementById('ing').style.display = "none";
+        document.getElementById('done').style.display = "block";
+    }
+</script>
 
 </html>
