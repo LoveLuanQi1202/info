@@ -1216,10 +1216,13 @@ nav {
     float: right;
     text-align: right;
 }
-
+.detail-right span {
+    margin-right: 10px;
+}
 .detail-right span:first-child {
     height: 29px;
     display: block;
+    
 }
 
 .c-info-bottom {
